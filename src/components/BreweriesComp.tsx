@@ -6,10 +6,9 @@ const AllBrewsDiv = styled.div`
     flex-flow: row wrap;
     justify-content: space-evenly;
     background-color: #dde5b6;
-    border: 3px #adc178;
 `;
 
-const OneBrewDiv = styled.div<{country: string}>`
+const OneBrewDiv = styled.div<{brewery_type: string}>`
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -17,9 +16,8 @@ const OneBrewDiv = styled.div<{country: string}>`
     padding: 3%;
     margin: 1%;
     text-align: center;
-    background-color: #6c584c;
-    color: ${(props)=>(props.country === "United States" ? '#dde5b6' : '#f0ead2')}
-    
+    background-color: ${(props)=>(props.brewery_type === "micro" ? '#6c584c' : '#adc178')};
+    color: ${(props)=>(props.brewery_type === "micro" ? '#f0ead2' : '#6c584c')}
 `;
 
 export default function BreweriesComp(props : {data:Brewery[]}) {
@@ -27,10 +25,10 @@ export default function BreweriesComp(props : {data:Brewery[]}) {
         <AllBrewsDiv>
             {
                 props.data.map((brew: Brewery) =>
-                    <OneBrewDiv key={brew.id} country={brew.country}>
+                    <OneBrewDiv key={brew.id} brewery_type={brew.brewery_type}>
                         <h2>{brew.name}</h2>
-                        <h3>{brew.brewery_type}</h3>
-                        <p>{brew.phone}</p>
+                        <h3>Brewery Type: {brew.brewery_type}</h3>
+                        <p>Phone #: {brew.phone}</p>
                         <h5>{brew.city}, {brew.state_province}, {brew.postal_code}, {brew.country}</h5>
                     </OneBrewDiv>
                 )
