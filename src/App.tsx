@@ -4,8 +4,10 @@ import { useEffect, useState } from "react";
 import type {Brewery} from "./types/Breweries.ts";
 
 const ParentDiv = styled.div`
-    width: 70vw;
-    margin: 0 auto;
+    width: 80vw;
+    margin: auto;
+    background-color: #dde5b6;
+    border: 7px #ccd5ae solid;
 `;
 
 export default function App() {
@@ -22,11 +24,11 @@ export default function App() {
         fetchData()
             .then(() => console.log("all good"))
             .catch((e: Error) => console.log("Error: " + e));
-    }, []);
+    }, [data.length]);
 
     return (
         <ParentDiv>
-            <BreweriesComp data={data} />
+            <BreweriesComp data={data}/>
         </ParentDiv>
     )
 
