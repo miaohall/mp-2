@@ -6,8 +6,8 @@ import type {Brewery} from "./types/Breweries.ts";
 const ParentDiv = styled.div`
     width: 80vw;
     margin: auto;
-    background-color: #dde5b6;
-    border: 7px #ccd5ae solid;
+    background-color: #e8fccf;
+    border: 7px #adc178 solid;
 `;
 
 export default function App() {

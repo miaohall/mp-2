@@ -14,8 +14,8 @@ const OneBrewDiv = styled.div<{brewery_type: string}>`
     max-width: 25%;
     padding-left: 8%;
     padding-right: 8%;
-    padding-top: 4%;
-    padding-bottom: 4%;
+    padding-top: 2%;
+    padding-bottom: 2%;
     margin: 1%;
     text-align: center;
     border: 6px #f0ead2 dotted;
@@ -24,11 +24,11 @@ const OneBrewDiv = styled.div<{brewery_type: string}>`
     
     &:hover { /*from https://styled-components.com/docs/basics documentation*/
         background-color: #fefae0;
-        color: #588157;
-        border: 6px #588157 dotted;
+        color: #4c956c;
+        border: 6px #4c956c dotted;
     }
     
-    background-color: ${(props)=>(props.brewery_type === "micro" ? "#6c584c" : "#adc178")};
+    background-color: ${(props)=>(props.brewery_type === "micro" ? "#6c584c" : "#aad576")};
     color: ${(props)=>(props.brewery_type === "micro" ? "#f0ead2" : "#6c584c")}
 `;
 
@@ -38,10 +38,10 @@ export default function BreweriesComp(props : {data:Brewery[]}) {
             {
                 props.data.map((brew: Brewery) =>
                     <OneBrewDiv key={brew.id} brewery_type={brew.brewery_type}>
-                        <h2>{brew.name}</h2>
-                        <h3>Brewery Type: {brew.brewery_type}</h3>
+                        <h1>{brew.name}</h1>
+                        <h2>Brewery Type: {brew.brewery_type}</h2>
                         <p>Phone #: {brew.phone}</p>
-                        <h5>{brew.address_1}, {brew.city}, {brew.state_province}, {brew.postal_code}, {brew.country}</h5>
+                        <h4>{brew.address_1}, {brew.city}, {brew.state_province}, {brew.postal_code}, {brew.country}</h4>
                     </OneBrewDiv>
                 )
             }
