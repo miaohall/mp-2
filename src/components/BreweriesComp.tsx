@@ -28,6 +28,7 @@ const OneBrewDiv = styled.div<{brewery_type: string}>`
         border: 6px #4c956c dotted;
     }
     
+    /*micro breweries are the most common type, so that is why they are distinguished */
     background-color: ${(props)=>(props.brewery_type === "micro" ? "#6c584c" : "#aad576")};
     color: ${(props)=>(props.brewery_type === "micro" ? "#f0ead2" : "#6c584c")}
 `;
@@ -41,7 +42,7 @@ export default function BreweriesComp(props : {data:Brewery[]}) {
                         <h1>{brew.name}</h1>
                         <h2>Brewery Type: {brew.brewery_type}</h2>
                         <p>Phone #: {brew.phone}</p>
-                        <h4>{brew.address_1}, {brew.city}, {brew.state_province}, {brew.postal_code}, {brew.country}</h4>
+                        <h4>{brew.address_1} {brew.city}, {brew.state_province}, {brew.postal_code}, {brew.country}</h4>
                     </OneBrewDiv>
                 )
             }
